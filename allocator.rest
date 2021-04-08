@@ -1,0 +1,16 @@
+GET http://localhost:3000/allocator
+
+###
+
+POST http://localhost:3000/allocator
+Content-Type: application/json
+
+{
+    "serverType": "API"
+}
+
+###
+
+DELETE http://localhost:3000/allocator/name/API1
+
+
