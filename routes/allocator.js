@@ -29,7 +29,7 @@ router.post('/', async (req, res) => {
     }
 })
 
-router.delete('/name/:serverName', async (req, res) => {
+router.delete('/:serverName', async (req, res) => {
 
     let serverName = req.params.serverName
     console.log('Removing server ' + serverName)
@@ -54,15 +54,21 @@ router.delete('/name/:serverName', async (req, res) => {
 async function findAvailableIndex(serverType) {
     let count = 0
 
-    servers.forEach(element => {
+    let serversCopy = [...servers]
+    serversCopy = serversCopy.sort()
+
+    for (var i = 0; i < serversCopy.length; i++) {
         const serverName = serverType + count
+        element = serversCopy[i];
         if (element.startsWith(serverType)) {
-            if (element === serverName)
+            if (element === serverName) {
                 count++
-            else
+            }
+            else {
                 return count
+            }
         }
-    });
+    }
     return count
 }
 

@@ -11,6 +11,6 @@ Content-Type: application/json
 
 ###
 
-DELETE http://localhost:3000/allocator/name/API1
+DELETE http://localhost:3000/allocator/API2
 
 
